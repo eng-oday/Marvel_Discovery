@@ -9,33 +9,33 @@ import Foundation
 import RxSwift
 
 
-class SplashScreenViewModel {
-    
-    let disposeBag                  = DisposeBag()
-    let viewDidAppear               = PublishSubject<Void>()
-    let applyLogoAnimationTrigger   = PublishSubject<Void>()
-    let goToHomeSubject                    = PublishSubject<Void>()
+
+protocol SplashScreenViewModelType{
+    func startAnimation(view:UIView, logoImage:UIImageView)
+}
+
+final class SplashViewModel:SplashScreenViewModelType {
+
+    let disposeBag                          = DisposeBag()
+    let applyLogoAnimationTrigger           = PublishSubject<Void>()
+    let goToHomeSubject                     = PublishSubject<Void>()
+    var animationManager:AnimationManager?
     
 
-    init (){
-        setupBinding()
+    init(animationManager:AnimationManager){
+        self.animationManager = animationManager
     }
     
-    private func setupBinding(){
-        viewDidAppear.subscribe { _ in
-            self.applyLogoAnimationTrigger.onNext(())
-        }.disposed(by: disposeBag)
-        
-//        goToHomeSubject.subscribe { _ in
-//            self.goToHome()
-//        }.disposed(by: disposeBag)
+    func startAnimation(view: UIView, logoImage: UIImageView) {
+        animationManager?.applyAnimation(view, logoImage, completion: { [weak self] in
+            guard let self else {return}
+            self.animationManager?.animate(view, logoImage, completion: {
+                self.animationManager?.hideLogoWithAnimation(logoImage, completion: {
+                    self.goToHomeSubject.onNext(())
+                })
+            })
+        })
         
     }
-    
-//    private func goToHome(){
-//        let home = HomeViewController()
-//        home.modalPresentationStyle = .overFullScreen
-//        self.present(home, animated: true)
-//    }
-    
+        
 }
