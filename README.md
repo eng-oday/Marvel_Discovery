@@ -1,5 +1,4 @@
 # Marvel Discovery
-- This App Support Dark and Light Mode
 # This IOS App was Apply This Technologies
 - MVVM 
 - RXSwift ✈️
