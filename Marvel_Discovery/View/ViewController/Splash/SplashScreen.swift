@@ -41,7 +41,7 @@ class SplashScreen: UIViewController {
         splashViewModel.applyLogoAnimationTrigger
             .subscribe(onNext: { [weak self] in
                 guard let self else {return}
-                self.splashViewModel.startAnimation(view: view, logoImage: logoImage)
+                self.splashViewModel.startAnimation(view: self.view, logoImage: self.logoImage)
             })
             .disposed(by: disposeBag)
         
@@ -54,8 +54,12 @@ class SplashScreen: UIViewController {
     
     private func goToHome(){
         let home = HomeViewController()
-        home.modalPresentationStyle = .overFullScreen
-        self.present(home, animated: true)
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let delegate = windowScene.delegate as? SceneDelegate {
+            let windows = delegate.window?.windowScene
+            windows?.keyWindow?.rootViewController = UINavigationController(rootViewController: home)
+            windows?.keyWindow?.makeKeyAndVisible()
+        }
     }
     
     

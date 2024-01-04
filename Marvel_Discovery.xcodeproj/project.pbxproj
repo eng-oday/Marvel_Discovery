@@ -12,7 +12,6 @@
 		A01E96DECE92C8B6AC4017E8 /* Pods_Marvel_DiscoveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D2DB1848AE7B6236E41BAF /* Pods_Marvel_DiscoveryTests.framework */; };
 		CEBA3EDC2B45DF70005086B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA3EDB2B45DF70005086B4 /* AppDelegate.swift */; };
 		CEBA3EDE2B45DF70005086B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA3EDD2B45DF70005086B4 /* SceneDelegate.swift */; };
-		CEBA3EE02B45DF70005086B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA3EDF2B45DF70005086B4 /* ViewController.swift */; };
 		CEBA3EE52B45DF70005086B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBA3EE42B45DF70005086B4 /* Assets.xcassets */; };
 		CEBA3EE82B45DF70005086B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBA3EE62B45DF70005086B4 /* LaunchScreen.storyboard */; };
 		CEBA3EF32B45DF71005086B4 /* Marvel_DiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA3EF22B45DF71005086B4 /* Marvel_DiscoveryTests.swift */; };
@@ -56,7 +55,6 @@
 		CEBA3ED82B45DF70005086B4 /* Marvel_Discovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel_Discovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBA3EDB2B45DF70005086B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEBA3EDD2B45DF70005086B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CEBA3EDF2B45DF70005086B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEBA3EE42B45DF70005086B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEBA3EE72B45DF70005086B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEBA3EE92B45DF70005086B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,15 +151,12 @@
 		CEBA3EDA2B45DF70005086B4 /* Marvel_Discovery */ = {
 			isa = PBXGroup;
 			children = (
+				F8BED8862B46CC7700AD5027 /* New Group */,
 				CEBA3F1C2B460594005086B4 /* Manager */,
 				CEBA3F0D2B45E107005086B4 /* ViewModel */,
 				CEBA3F0C2B45E103005086B4 /* View */,
 				CEBA3F0B2B45E0F8005086B4 /* Model */,
-				CEBA3EDB2B45DF70005086B4 /* AppDelegate.swift */,
-				CEBA3EDD2B45DF70005086B4 /* SceneDelegate.swift */,
-				CEBA3EDF2B45DF70005086B4 /* ViewController.swift */,
-				CEBA3EE42B45DF70005086B4 /* Assets.xcassets */,
-				CEBA3EE62B45DF70005086B4 /* LaunchScreen.storyboard */,
+				F8BED8852B46CC6800AD5027 /* Utilities */,
 				CEBA3EE92B45DF70005086B4 /* Info.plist */,
 			);
 			path = Marvel_Discovery;
@@ -266,6 +261,24 @@
 				CEBA3F262B461542005086B4 /* SplashViewModelTests.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F8BED8852B46CC6800AD5027 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA3EE42B45DF70005086B4 /* Assets.xcassets */,
+				CEBA3EE62B45DF70005086B4 /* LaunchScreen.storyboard */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F8BED8862B46CC7700AD5027 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA3EDB2B45DF70005086B4 /* AppDelegate.swift */,
+				CEBA3EDD2B45DF70005086B4 /* SceneDelegate.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,7 +523,6 @@
 			files = (
 				CEBA3F172B45E981005086B4 /* HomeViewController.swift in Sources */,
 				CEBA3F122B45E4C6005086B4 /* SplashScreen.swift in Sources */,
-				CEBA3EE02B45DF70005086B4 /* ViewController.swift in Sources */,
 				CEBA3F1B2B45ED61005086B4 /* SplashViewModel.swift in Sources */,
 				CEBA3F1E2B4605A1005086B4 /* AnimationManager.swift in Sources */,
 				CEBA3EDC2B45DF70005086B4 /* AppDelegate.swift in Sources */,
@@ -692,6 +704,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -719,6 +732,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
