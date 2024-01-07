@@ -9,6 +9,7 @@ target 'Marvel_Discovery' do
 
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod 'Alamofire'
 
   target 'Marvel_DiscoveryTests' do
     inherit! :search_paths

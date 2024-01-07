@@ -10,6 +10,11 @@
 		33435284B69E5E810E6258DB /* Pods_Marvel_Discovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9019F935749216BE59E5895A /* Pods_Marvel_Discovery.framework */; };
 		78D31778DAC69AC0FEA93E37 /* Pods_Marvel_Discovery_Marvel_DiscoveryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68ADB61139E22A19D6886B72 /* Pods_Marvel_Discovery_Marvel_DiscoveryUITests.framework */; };
 		A01E96DECE92C8B6AC4017E8 /* Pods_Marvel_DiscoveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D2DB1848AE7B6236E41BAF /* Pods_Marvel_DiscoveryTests.framework */; };
+		CE43F86C2B4768D0000D32B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE43F86B2B4768D0000D32B2 /* HomeViewModel.swift */; };
+		CE43F86E2B476933000D32B2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE43F86D2B476933000D32B2 /* NetworkManager.swift */; };
+		CE43F8712B476988000D32B2 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE43F8702B476988000D32B2 /* Endpoint.swift */; };
+		CE43F8732B477022000D32B2 /* MarvelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE43F8722B477022000D32B2 /* MarvelModel.swift */; };
+		CE43F8752B477F84000D32B2 /* MyNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE43F8742B477F84000D32B2 /* MyNetworkService.swift */; };
 		CEBA3EDC2B45DF70005086B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA3EDB2B45DF70005086B4 /* AppDelegate.swift */; };
 		CEBA3EDE2B45DF70005086B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA3EDD2B45DF70005086B4 /* SceneDelegate.swift */; };
 		CEBA3EE52B45DF70005086B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBA3EE42B45DF70005086B4 /* Assets.xcassets */; };
@@ -55,6 +60,11 @@
 		68ADB61139E22A19D6886B72 /* Pods_Marvel_Discovery_Marvel_DiscoveryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel_Discovery_Marvel_DiscoveryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9019F935749216BE59E5895A /* Pods_Marvel_Discovery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel_Discovery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C9C6709D2687B4730F6230 /* Pods-Marvel_DiscoveryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel_DiscoveryTests.release.xcconfig"; path = "Target Support Files/Pods-Marvel_DiscoveryTests/Pods-Marvel_DiscoveryTests.release.xcconfig"; sourceTree = "<group>"; };
+		CE43F86B2B4768D0000D32B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CE43F86D2B476933000D32B2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CE43F8702B476988000D32B2 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		CE43F8722B477022000D32B2 /* MarvelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelModel.swift; sourceTree = "<group>"; };
+		CE43F8742B477F84000D32B2 /* MyNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkService.swift; sourceTree = "<group>"; };
 		CEBA3ED82B45DF70005086B4 /* Marvel_Discovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel_Discovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBA3EDB2B45DF70005086B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEBA3EDD2B45DF70005086B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +142,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE43F86A2B4768B4000D32B2 /* HomeViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE43F86B2B4768D0000D32B2 /* HomeViewModel.swift */,
+			);
+			path = HomeViewModel;
+			sourceTree = "<group>";
+		};
+		CE43F86F2B47696A000D32B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE43F8702B476988000D32B2 /* Endpoint.swift */,
+				CE43F8722B477022000D32B2 /* MarvelModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CEBA3ECF2B45DF70005086B4 = {
 			isa = PBXGroup;
 			children = (
@@ -157,13 +184,13 @@
 		CEBA3EDA2B45DF70005086B4 /* Marvel_Discovery */ = {
 			isa = PBXGroup;
 			children = (
+				F8BED8862B46CC7700AD5027 /* SystemFiles */,
 				F8CEC73D2B46D8C4006C7536 /* Helper */,
-				F8BED8862B46CC7700AD5027 /* New Group */,
-				CEBA3F1C2B460594005086B4 /* Manager */,
-				CEBA3F0D2B45E107005086B4 /* ViewModel */,
-				CEBA3F0C2B45E103005086B4 /* View */,
-				CEBA3F0B2B45E0F8005086B4 /* Model */,
 				F8BED8852B46CC6800AD5027 /* Utilities */,
+				CEBA3F1C2B460594005086B4 /* Manager */,
+				CEBA3F0C2B45E103005086B4 /* View */,
+				CEBA3F0D2B45E107005086B4 /* ViewModel */,
+				CE43F86F2B47696A000D32B2 /* Model */,
 				CEBA3EE92B45DF70005086B4 /* Info.plist */,
 			);
 			path = Marvel_Discovery;
@@ -188,18 +215,11 @@
 			path = Marvel_DiscoveryUITests;
 			sourceTree = "<group>";
 		};
-		CEBA3F0B2B45E0F8005086B4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		CEBA3F0C2B45E103005086B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F8BED8872B46D54F00AD5027 /* Cells */,
 				CEBA3F0E2B45E111005086B4 /* ViewController */,
+				F8BED8872B46D54F00AD5027 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +227,7 @@
 		CEBA3F0D2B45E107005086B4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CE43F86A2B4768B4000D32B2 /* HomeViewModel */,
 				CEBA3F192B45ED52005086B4 /* SplashViewModel */,
 			);
 			path = ViewModel;
@@ -251,6 +272,8 @@
 			isa = PBXGroup;
 			children = (
 				CEBA3F1D2B4605A1005086B4 /* AnimationManager.swift */,
+				CE43F86D2B476933000D32B2 /* NetworkManager.swift */,
+				CE43F8742B477F84000D32B2 /* MyNetworkService.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -280,13 +303,13 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		F8BED8862B46CC7700AD5027 /* New Group */ = {
+		F8BED8862B46CC7700AD5027 /* SystemFiles */ = {
 			isa = PBXGroup;
 			children = (
 				CEBA3EDB2B45DF70005086B4 /* AppDelegate.swift */,
 				CEBA3EDD2B45DF70005086B4 /* SceneDelegate.swift */,
 			);
-			path = "New Group";
+			path = SystemFiles;
 			sourceTree = "<group>";
 		};
 		F8BED8872B46D54F00AD5027 /* Cells */ = {
@@ -563,13 +586,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE43F8732B477022000D32B2 /* MarvelModel.swift in Sources */,
 				CEBA3F172B45E981005086B4 /* HomeViewController.swift in Sources */,
+				CE43F86C2B4768D0000D32B2 /* HomeViewModel.swift in Sources */,
+				CE43F86E2B476933000D32B2 /* NetworkManager.swift in Sources */,
 				F8BED88C2B46D57100AD5027 /* HomeMainTableViewCell.swift in Sources */,
 				CEBA3F122B45E4C6005086B4 /* SplashScreen.swift in Sources */,
 				CEBA3F1B2B45ED61005086B4 /* SplashViewModel.swift in Sources */,
 				CEBA3F1E2B4605A1005086B4 /* AnimationManager.swift in Sources */,
 				CEBA3EDC2B45DF70005086B4 /* AppDelegate.swift in Sources */,
 				CEBA3EDE2B45DF70005086B4 /* SceneDelegate.swift in Sources */,
+				CE43F8712B476988000D32B2 /* Endpoint.swift in Sources */,
+				CE43F8752B477F84000D32B2 /* MyNetworkService.swift in Sources */,
 				F8CEC73F2B46D8CF006C7536 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
