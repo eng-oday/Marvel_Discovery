@@ -27,6 +27,10 @@ class HomeViewModel:HomeViewModelProtocol {
     let disposeBag                                  = DisposeBag()
 
     
+    var detailsViewModel                            = CharacterDetailsViewModel(data: nil)
+    let dataToPass:BehaviorRelay                    = BehaviorRelay<Results?>(value: nil)
+    let selectedItem                                =  PublishSubject<Any>()
+    
     init(networkService: NetworkService! , loadImage:ImageLoaderActions) {
         self.networkService = networkService
         self.loadImage      = loadImage
@@ -60,6 +64,18 @@ class HomeViewModel:HomeViewModelProtocol {
             self.offsetElments += 10
             self.getMarvelCharacters(offsetElments: self.offsetElments)
         }
+    }
+    
+    func didSelectItemAt(index:Int){
+        let selectedItemData = characters.value[index]
+        detailsViewModel = CharacterDetailsViewModel(data: selectedItemData)
+        selectedItem.onNext(())
+        sendDataToDetails(selectedItemData: selectedItemData)
+    }
+    
+    func sendDataToDetails(selectedItemData:Results){
+        print("Sending data to details: \(selectedItemData)")
+        dataToPass.accept(selectedItemData)
     }
 
 }

@@ -13,7 +13,6 @@ import XCTest
 
 class MockAnimationManager:AnimationManager {
     
-    var expectasion:XCTestExpectation?
     var applyAnimationCalled = false
     var animateCalled = false
     var hideLogoWithAnimationCalled = false

@@ -89,11 +89,24 @@ extension HomeViewController:UITableViewDelegate {
     
     
     private func bindTableView_CellDidSelected(){
-        mainTableView.rx.modelSelected(Results.self).subscribe(onNext: { item in
-            print("SelectedItem: \(item.name ?? "")")
-        }).disposed(by: disposeBag)
+        subscribeToNavigateToDetailsVC()
+        mainTableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.homeViewModel.didSelectItemAt(index: indexPath.row)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func subscribeToNavigateToDetailsVC(){
+        homeViewModel.selectedItem.subscribe { [weak self] result in
+            
+            let characterDetailsVC = CharacterDetailsViewController()
+            characterDetailsVC.characterViewModel = self?.homeViewModel.detailsViewModel
+            self?.navigationController?.pushViewController(characterDetailsVC, animated: true)
+        }
     }
     
 }
+
 
 
