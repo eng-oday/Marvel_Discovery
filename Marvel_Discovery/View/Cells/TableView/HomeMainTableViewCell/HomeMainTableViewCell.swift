@@ -23,4 +23,9 @@ class HomeMainTableViewCell: UITableViewCell {
 
     }
     
+    
+//    func configureCell(model:Results){
+//        tittleLabel.text  = model.name
+//    }
+    
 }

@@ -23,11 +23,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        homeViewModel.getMarvelCharacters(currentPage: 1)
+        homeViewModel.getMarvelCharacters()
         bindTableView_SetCharacters()
         subscribeOnLoadedImageAndSetImageCells()
         bindTableView_CellDidSelected()
-        //pagination()
     }
     
     private func setupTableView(){
@@ -40,6 +39,9 @@ class HomeViewController: UIViewController {
     
 }
 
+
+
+//TODO: move set cell to Cell itself by configure function 
 
 //MARK: - TABLE VIEW
 extension HomeViewController:UITableViewDelegate {
@@ -67,7 +69,24 @@ extension HomeViewController:UITableViewDelegate {
             } onError: { error in
                 print("Error loading remote image: \(error)")
             }.disposed(by: disposeBag)
+        
+        ConfigurePagination()
+        
     }
+    private func ConfigurePagination(){
+        mainTableView.rx.didEndDragging
+            .filter({ [weak self] _ in
+                guard let self else {return false}
+                let offsetY         = self.mainTableView.contentOffset.y
+                let contentHeight   = self.mainTableView.contentSize.height
+                let height          = self.mainTableView.frame.size.height
+                return offsetY > contentHeight - height
+            })
+            .map({ _ in () })
+            .bind(to: homeViewModel.scrollEnded)
+            .disposed(by: disposeBag)
+    }
+    
     
     private func bindTableView_CellDidSelected(){
         mainTableView.rx.modelSelected(Results.self).subscribe(onNext: { item in
@@ -76,3 +95,5 @@ extension HomeViewController:UITableViewDelegate {
     }
     
 }
+
+

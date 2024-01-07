@@ -21,7 +21,7 @@ protocol Endpoint:URLRequestConvertible {
 
 enum MarvelEndpoint: Endpoint {
         
-    case getMarvelCharacters(limit:Int)
+    case getMarvelCharacters(limit:Int , offset:Int)
 
     
     var baseURL:URL {
@@ -44,8 +44,9 @@ enum MarvelEndpoint: Endpoint {
     
     var parameters: Parameters? {
         switch self {
-        case .getMarvelCharacters(let limit):
+        case .getMarvelCharacters(let limit , let offset):
             return ["limit":limit,
+                    "offset":offset,
                     "apikey" : MarvelKeys.publicKey,
                     "ts" : getCurrentTimestamp() ,
                     "hash" : generateMarvelHash(timestamp: getCurrentTimestamp(), privateKey: MarvelKeys.privateKey, publicKey: MarvelKeys.publicKey)
