@@ -15,7 +15,6 @@ protocol AnimationManager{
 }
 
 
-
 final class DefaultAnimationManager:AnimationManager {
     
     

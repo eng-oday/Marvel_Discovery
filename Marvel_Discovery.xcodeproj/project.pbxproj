@@ -15,6 +15,7 @@
 		CE43F8712B476988000D32B2 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE43F8702B476988000D32B2 /* Endpoint.swift */; };
 		CE43F8732B477022000D32B2 /* MarvelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE43F8722B477022000D32B2 /* MarvelModel.swift */; };
 		CE43F8752B477F84000D32B2 /* MyNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE43F8742B477F84000D32B2 /* MyNetworkService.swift */; };
+		CE43F87A2B4A396D000D32B2 /* DownloadImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE43F8792B4A396D000D32B2 /* DownloadImageManager.swift */; };
 		CEBA3EDC2B45DF70005086B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA3EDB2B45DF70005086B4 /* AppDelegate.swift */; };
 		CEBA3EDE2B45DF70005086B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA3EDD2B45DF70005086B4 /* SceneDelegate.swift */; };
 		CEBA3EE52B45DF70005086B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBA3EE42B45DF70005086B4 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		CE43F8702B476988000D32B2 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		CE43F8722B477022000D32B2 /* MarvelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelModel.swift; sourceTree = "<group>"; };
 		CE43F8742B477F84000D32B2 /* MyNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkService.swift; sourceTree = "<group>"; };
+		CE43F8792B4A396D000D32B2 /* DownloadImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageManager.swift; sourceTree = "<group>"; };
 		CEBA3ED82B45DF70005086B4 /* Marvel_Discovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel_Discovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBA3EDB2B45DF70005086B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEBA3EDD2B45DF70005086B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,7 +186,7 @@
 		CEBA3EDA2B45DF70005086B4 /* Marvel_Discovery */ = {
 			isa = PBXGroup;
 			children = (
-				F8BED8862B46CC7700AD5027 /* SystemFiles */,
+				F8BED8862B46CC7700AD5027 /* AppDelegate */,
 				F8CEC73D2B46D8C4006C7536 /* Helper */,
 				F8BED8852B46CC6800AD5027 /* Utilities */,
 				CEBA3F1C2B460594005086B4 /* Manager */,
@@ -274,6 +276,7 @@
 				CEBA3F1D2B4605A1005086B4 /* AnimationManager.swift */,
 				CE43F86D2B476933000D32B2 /* NetworkManager.swift */,
 				CE43F8742B477F84000D32B2 /* MyNetworkService.swift */,
+				CE43F8792B4A396D000D32B2 /* DownloadImageManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -303,13 +306,13 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		F8BED8862B46CC7700AD5027 /* SystemFiles */ = {
+		F8BED8862B46CC7700AD5027 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
 				CEBA3EDB2B45DF70005086B4 /* AppDelegate.swift */,
 				CEBA3EDD2B45DF70005086B4 /* SceneDelegate.swift */,
 			);
-			path = SystemFiles;
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		F8BED8872B46D54F00AD5027 /* Cells */ = {
@@ -598,6 +601,7 @@
 				CEBA3EDE2B45DF70005086B4 /* SceneDelegate.swift in Sources */,
 				CE43F8712B476988000D32B2 /* Endpoint.swift in Sources */,
 				CE43F8752B477F84000D32B2 /* MyNetworkService.swift in Sources */,
+				CE43F87A2B4A396D000D32B2 /* DownloadImageManager.swift in Sources */,
 				F8CEC73F2B46D8CF006C7536 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,3 +24,8 @@ enum MarvelURL {
 enum MarvelPath {
     static let charactersPath        = "v1/public/characters"
 }
+
+enum ImageLoadingError: Error {
+    case invalidURL
+    case failedToLoadImage
+}

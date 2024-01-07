@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import Alamofire
 
-class BasicNetworkService:NetworkService {
+final class BasicNetworkService:NetworkService {
     // 1 .JUST APPLY DEFAULT IMPLEMENATION
+
 }

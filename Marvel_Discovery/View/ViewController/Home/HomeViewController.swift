@@ -16,19 +16,18 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var mainBodyContainerView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
     
-    private let homeViewModel     = HomeViewModel(networkService:BasicNetworkService())
+    private let homeViewModel     = HomeViewModel(networkService:BasicNetworkService(),loadImage:ImageLoader())
     private let disposeBag        = DisposeBag()
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        bindTableViewWithViewModel_SetCharacters()
+        homeViewModel.getMarvelCharacters(currentPage: 1)
+        bindTableView_SetCharacters()
+        subscribeOnLoadedImageAndSetImageCells()
         bindTableView_CellDidSelected()
-    }
-
-    private func callData(){
-        homeViewModel.getMarvelCharacters()
+        //pagination()
     }
     
     private func setupTableView(){
@@ -38,7 +37,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func searchButtonPRessed(_ sender: Any) {
     }
-
+    
 }
 
 
@@ -49,13 +48,25 @@ extension HomeViewController:UITableViewDelegate {
         return 140
     }
     
-    private func bindTableViewWithViewModel_SetCharacters(){
-        homeViewModel.characters.bind(to: mainTableView.rx.items(cellIdentifier: TableViewCells.HomeMainTableViewCell)) {index,model,cell in
+    private func bindTableView_SetCharacters(){
+        homeViewModel.characters.bind(to: mainTableView.rx.items(cellIdentifier: TableViewCells.HomeMainTableViewCell)) { [weak self] index,model,cell in
             guard let cell = cell as? HomeMainTableViewCell else {return}
             cell.tittleLabel.text = model.name ?? ""
+            self?.homeViewModel.laodImageFromURL(with: index)
             
         }.disposed(by: disposeBag)
-        callData()
+    }
+    
+    private func subscribeOnLoadedImageAndSetImageCells() {
+        homeViewModel.loadedImage
+            .filter { $0.1 != nil}
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] index , image in
+                guard let cell = self?.mainTableView.cellForRow(at: IndexPath(item: index, section: 0)) as? HomeMainTableViewCell else {return}
+                cell.mainBackGroundImage.image = image
+            } onError: { error in
+                print("Error loading remote image: \(error)")
+            }.disposed(by: disposeBag)
     }
     
     private func bindTableView_CellDidSelected(){
