@@ -51,7 +51,8 @@ extension HomeViewController:UITableViewDelegate {
     }
     
     private func bindTableView_SetCharacters(){
-        homeViewModel.characters.bind(to: mainTableView.rx.items(cellIdentifier: TableViewCells.HomeMainTableViewCell)) { [weak self] index,model,cell in
+        homeViewModel.characters
+            .bind(to: mainTableView.rx.items(cellIdentifier: TableViewCells.HomeMainTableViewCell)) { [weak self] index,model,cell in
             guard let cell = cell as? HomeMainTableViewCell else {return}
             cell.tittleLabel.text = model.name ?? ""
             self?.homeViewModel.laodImageFromURL(with: index)
@@ -99,8 +100,8 @@ extension HomeViewController:UITableViewDelegate {
     
     private func subscribeToNavigateToDetailsVC(){
         homeViewModel.selectedItem.subscribe { [weak self] result in
-            
             let characterDetailsVC = CharacterDetailsViewController()
+            characterDetailsVC.navigationController?.navigationBar.isHidden = true
             characterDetailsVC.characterViewModel = self?.homeViewModel.detailsViewModel
             self?.navigationController?.pushViewController(characterDetailsVC, animated: true)
         }

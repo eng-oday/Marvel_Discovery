@@ -12,10 +12,27 @@ import RxCocoa
 
 class CharacterDetailsViewModel {
 
-    let data:BehaviorRelay = BehaviorRelay<Results?>(value: nil)
+    private var loadImage:ImageLoaderActions?
 
-    init(data: Results?) {
-        self.data.accept(data)
+    
+    let characterData:BehaviorRelay = BehaviorRelay<Results?>(value: nil)
+    let characterImage:BehaviorRelay = BehaviorRelay<UIImage?>(value: nil)
+
+    init(characterData: Results? , loadImage:ImageLoaderActions?) {
+        self.characterData.accept(characterData)
+        self.loadImage = loadImage
+        laodImageFromURL()
     }
     
+    func laodImageFromURL(){
+        let urlPath         = characterData.value?.thumbnail?.path
+        let imageExtension  = characterData.value?.thumbnail?.extension
+        let imageUrl        = "\(urlPath ?? "").\(imageExtension ?? "")"
+        loadImage?.loadRemoteImageFrom(urlString: imageUrl).subscribe { [weak self] uiimage in
+            self?.characterImage.accept(uiimage)
+        } onFailure: { error in
+            print(error)
+        }
+    }
+
 }

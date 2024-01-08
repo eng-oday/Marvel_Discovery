@@ -22,13 +22,12 @@ class HomeViewModel:HomeViewModelProtocol {
     private var offsetElments = 0
     
     let characters:BehaviorRelay<[Results]>         = BehaviorRelay(value: [])
-    let loadedImage:PublishRelay<(Int,UIImage?)>    = PublishRelay()
+    let loadedImage:PublishRelay<(Int,UIImage?)>  = PublishRelay()
     let scrollEnded                                 = PublishRelay<Void>()
     let disposeBag                                  = DisposeBag()
 
     
-    var detailsViewModel                            = CharacterDetailsViewModel(data: nil)
-    let dataToPass:BehaviorRelay                    = BehaviorRelay<Results?>(value: nil)
+    var detailsViewModel                            = CharacterDetailsViewModel(characterData: nil, loadImage: nil)
     let selectedItem                                =  PublishSubject<Any>()
     
     init(networkService: NetworkService! , loadImage:ImageLoaderActions) {
@@ -68,15 +67,11 @@ class HomeViewModel:HomeViewModelProtocol {
     
     func didSelectItemAt(index:Int){
         let selectedItemData = characters.value[index]
-        detailsViewModel = CharacterDetailsViewModel(data: selectedItemData)
+        var characterImage:UIImage?
+        detailsViewModel = CharacterDetailsViewModel(characterData: selectedItemData, loadImage: loadImage)
         selectedItem.onNext(())
-        sendDataToDetails(selectedItemData: selectedItemData)
     }
-    
-    func sendDataToDetails(selectedItemData:Results){
-        print("Sending data to details: \(selectedItemData)")
-        dataToPass.accept(selectedItemData)
-    }
+
 
 }
 

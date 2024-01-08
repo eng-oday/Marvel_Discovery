@@ -57,10 +57,14 @@ class SplashScreen: UIViewController {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let delegate = windowScene.delegate as? SceneDelegate {
             let windows = delegate.window?.windowScene
-            windows?.keyWindow?.rootViewController = UINavigationController(rootViewController: home)
+            let navigationController = UINavigationController(rootViewController: home)
+            navigationController.navigationBar.isHidden = true
+            navigationController.navigationBar.isTranslucent = true
+            windows?.keyWindow?.rootViewController = navigationController
             windows?.keyWindow?.makeKeyAndVisible()
         }
     }
     
     
 }
+

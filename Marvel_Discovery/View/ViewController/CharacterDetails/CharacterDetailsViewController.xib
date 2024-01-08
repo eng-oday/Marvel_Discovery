@@ -17,6 +17,7 @@
                 <outlet property="mainImageView" destination="RZa-R2-vz1" id="Y0O-Nm-a7L"/>
                 <outlet property="nameTextLabel" destination="UwD-3N-LBd" id="ix1-eu-K36"/>
                 <outlet property="nameTittleLabel" destination="qkz-WR-WYF" id="Nze-Mf-Isq"/>
+                <outlet property="scrollView" destination="Ga4-N7-vhP" id="BYF-Eh-kCD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -132,13 +133,13 @@
                     </constraints>
                 </view>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <viewLayoutGuide key="safeArea" id="gv0-iD-Eyg"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="zIa-0T-koB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DA8-P2-Jqp"/>
+                <constraint firstItem="zIa-0T-koB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DA8-P2-Jqp"/>
                 <constraint firstAttribute="bottom" secondItem="zIa-0T-koB" secondAttribute="bottom" id="SPa-ZI-tZj"/>
                 <constraint firstItem="zIa-0T-koB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="n3W-l3-DwM"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zIa-0T-koB" secondAttribute="trailing" id="oMZ-Pf-mIq"/>
+                <constraint firstAttribute="trailing" secondItem="zIa-0T-koB" secondAttribute="trailing" id="oMZ-Pf-mIq"/>
             </constraints>
             <point key="canvasLocation" x="136.64122137404578" y="19.718309859154932"/>
         </view>
